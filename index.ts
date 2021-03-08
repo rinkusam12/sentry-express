@@ -1,5 +1,5 @@
-import Sentry from "@sentry/node";
-import Tracing from "@sentry/tracing";
+import * as Sentry from "@sentry/node";
+import * as Tracing from "@sentry/tracing";
 import express, { Response } from "express";
 const app = express();
 // const Sentry = require('@sentry/node');
@@ -28,6 +28,7 @@ app.use(Sentry.Handlers.tracingHandler());
 
 // All controllers should live here
 app.get("/", function rootHandler(req, res) {
+  throw new Error("fajkdasjld");
   res.end("Hello world!");
 });
 
