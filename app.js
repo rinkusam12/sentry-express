@@ -1,6 +1,7 @@
 // const express = require('express');
 const Sentry = require("@sentry/node");
 const Tracing = require("@sentry/tracing");
+const fs = require("fs");
 
 const app = require("express")();
 Sentry.init({
@@ -27,7 +28,8 @@ app.use(Sentry.Handlers.tracingHandler());
 
 // All controllers should live here
 app.get("/", function rootHandler(req, res) {
-  throw new Error("fajkdasjld");
+  fs.readFile("jasfkdhjsdaf");
+  res.send("dsafldsaf");
 });
 
 // The error handler must be before any other error middleware and after all controllers
