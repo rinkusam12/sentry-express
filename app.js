@@ -32,6 +32,11 @@ app.get("/", function rootHandler(req, res) {
   res.send("dsafldsaf");
 });
 
+app.get("/error", (req, res, next) => {
+  fs.readFile("jasfkdhjsdaf");
+  res.send("Hellow");
+});
+
 // The error handler must be before any other error middleware and after all controllers
 app.use(Sentry.Handlers.errorHandler());
 
