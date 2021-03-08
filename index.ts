@@ -8,6 +8,7 @@ const app = express();
 Sentry.init({
   dsn:
     "https://9abc5a1d45f14379b4c0c71f2956a6ba@o525665.ingest.sentry.io/5666737",
+  release: "sentry-express",
   integrations: [
     // enable HTTP calls tracing
     new Sentry.Integrations.Http({ tracing: true }),
@@ -29,7 +30,6 @@ app.use(Sentry.Handlers.tracingHandler());
 // All controllers should live here
 app.get("/", function rootHandler(req, res) {
   throw new Error("fajkdasjld");
-  res.end("Hello world!");
 });
 
 // The error handler must be before any other error middleware and after all controllers
